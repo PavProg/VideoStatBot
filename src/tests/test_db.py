@@ -1,5 +1,5 @@
-from src.db.database import get_db
+from src.db.database import init_db
 import asyncio
 
 if __name__ == '__main__':
-    asyncio.run(get_db())
+    asyncio.run(init_db())
