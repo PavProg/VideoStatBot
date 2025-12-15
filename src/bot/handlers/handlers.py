@@ -43,6 +43,7 @@ async def handle_text_query(message: Message):
         sql_query = await yc_service.text_to_sql(user_query)
 
         if not sql_query:
+            await message.answer('Не удалось понять запрос. Попробуй сформулировать иначе')
             # await processing_msg.edit_text('Не удалось понять запрос. Попробуй сформулировать иначе')
             return
 
@@ -53,6 +54,7 @@ async def handle_text_query(message: Message):
             row = res.fetchone()
 
             if not row or row[0] is None:
+                await message.answer('Возникла ошибка при обработке')
                 # await processing_msg.edit_text('Запросе не вернул результатов')
                 return
 
@@ -64,6 +66,7 @@ async def handle_text_query(message: Message):
 
     except Exception as e:
         logger.error(f'Ошибка обработки запросов: {e}', exc_info=True)
+        await message.answer('Возникла ошибка при обработке')
         # await processing_msg.edit_text(
         #     'Произошла ошибка при обработке запроса.\n'
         #     'Попробуйте сформулировать запрос проще или проверьте корректность ID'

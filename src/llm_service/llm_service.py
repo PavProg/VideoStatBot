@@ -140,20 +140,30 @@ class YandexMLGPTQueryService:
         10. Для максимального/минимального используй MAX(поле)/MIN(поле).
         11. Всегда возвращай ТОЛЬКО SQL-запрос, без пояснений, без обратных кавычек ```, без markdown.
         12. Если не можешь создать запрос, верни 'NULL'.
-        13. Для вопросов о датах (например "27 ноября 2025") используй функцию DATE(): WHERE DATE(created_at) = '2025-11-27'
-        14. Для вопросов о "новых просмотрах" используй delta_views_count > 0
-        15. Если вопрос о количестве ВИДЕО, всегда используй COUNT(DISTINCT ...) чтобы избежать дублирования.
+        
+        ОСОБЫЕ ПРАВИЛА ДЛЯ ДАТ И ВРЕМЕНИ:
+        13. Для фильтрации по КОНКРЕТНОЙ ДАТЕ используй функцию DATE(): WHERE DATE(created_at) = '2025-11-27'
+        14. Для фильтрации по МЕСЯЦУ используй EXTRACT(): WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+        15. Для фильтрации по ГОДУ используй EXTRACT(): WHERE EXTRACT(YEAR FROM video_created_at) = 2025
+        16. Для фильтрации по ПЕРИОДУ (с/по) используй BETWEEN: WHERE created_at BETWEEN '2025-06-01' AND '2025-06-30'
+        
+        ОСОБЫЕ ПРАВИЛА ДЛЯ СТАТИСТИКИ:
+        17. Для вопросов о "новых просмотрах" используй delta_views_count > 0
+        18. Для вопросов о "суммарных просмотрах ВСЕХ видео" используй SUM(views_count) из таблицы videos
+        19. Для вопросов о "суммарных просмотрах по снапшотам" используй SUM(views_count) из таблицы snapshots с DISTINCT или группировкой
         
         ИНТЕРПРЕТАЦИЯ ВОПРОСОВ:
-        - "по итоговой статистике", "текущие показатели" → используй таблицу videos
-        - "когда-либо имели", "в истории были" → используй таблицу snapshots с DISTINCT
-        - "максимальные просмотры" → используй MAX(views_count) в подзапросе
-        - "больше X просмотров" → проверяй views_count > X
+        20. "по итоговой статистике", "текущие показатели", "всего" → используй таблицу videos
+        21. "когда-либо имели", "в истории были", "по снапшотам" → используй таблицу snapshots с DISTINCT
+        22. "максимальные просмотры" → используй MAX(views_count) в подзапросе или GROUP BY
+        23. "опубликованные в [месяц] [год]" → используй EXTRACT(YEAR FROM video_created_at) = год AND EXTRACT(MONTH FROM video_created_at) = месяц
         
-        ПРИМЕРЫ:
-        - "Сколько видео имеют > 10000 просмотров?" → SELECT COUNT(*) FROM videos WHERE views_count > 10000
-        - "Сколько видео набрали > 10000 просмотров в истории?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE views_count > 10000
-        - "Сколько видео у автора X имеют > 10000 просмотров?" → SELECT COUNT(*) FROM videos WHERE creator_id = 'X' AND views_count > 10000
+        ПРИМЕРЫ SQL-ЗАПРОСОВ:
+        24. "Сколько видео имеют > 10000 просмотров?" → SELECT COUNT(*) FROM videos WHERE views_count > 10000
+        25. "Сколько видео набрали > 10000 просмотров в истории?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE views_count > 10000
+        26. "Сколько видео опубликовано в июне 2025?" → SELECT COUNT(*) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+        27. "Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?" → SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+        28. "Сколько разных видео получали новые просмотры 27 ноября 2025?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE DATE(created_at) = '2025-11-27' AND delta_views_count > 0
         """
         }
         user_message = {
