@@ -1,0 +1,261 @@
+2025-12-16 00:08:22 - __main__ - INFO - Запуск приложения...
+2025-12-16 00:08:22 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:08:22 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:08:22 - __main__ - INFO - База данных инициализирована
+2025-12-16 00:08:23 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 00:08:23 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 00:08:23 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:08:38 - aiogram.event - INFO - Update id=738227696 is handled. Duration 248 ms by bot id=7844736553
+2025-12-16 00:09:49 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:09:49 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:09:50 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) \nFROM videos \nJOIN snapshots ON videos.video_id = snapshots.video_id \nWHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' \n  AND snapshots.views_count > 10000;"
+2025-12-16 00:09:50 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000"
+2025-12-16 00:09:50 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:09:50 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:09:50 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:09:50 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:09:50 - sqlalchemy.engine.Engine - INFO - [generated in 0.00024s] ()
+2025-12-16 00:09:50 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:09:50 - aiogram.event - INFO - Update id=738227697 is handled. Duration 1368 ms by bot id=7844736553
+2025-12-16 00:11:09 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 00:11:09 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 00:11:09 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 00:11:09 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:11:15 - __main__ - INFO - Запуск приложения...
+2025-12-16 00:11:15 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:11:15 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:11:15 - __main__ - INFO - База данных инициализирована
+2025-12-16 00:11:15 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 00:11:15 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 00:11:15 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:11:25 - aiogram.event - INFO - Update id=738227698 is handled. Duration 232 ms by bot id=7844736553
+2025-12-16 00:11:36 - src.bot.handlers.handlers - INFO - Получен запрос Сколько всего видео?
+2025-12-16 00:11:36 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько всего видео?
+2025-12-16 00:11:37 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COUNT(*) FROM videos;'
+2025-12-16 00:11:37 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COUNT(*) FROM videos'
+2025-12-16 00:11:37 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos
+2025-12-16 00:11:37 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos
+2025-12-16 00:11:37 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:11:37 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos
+2025-12-16 00:11:37 - sqlalchemy.engine.Engine - INFO - [generated in 0.00026s] ()
+2025-12-16 00:11:37 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-12-16 00:11:37 - src.bot.handlers.handlers - ERROR - Ошибка обработки запросов: 'str' object has no attribute 'edit_text'
+Traceback (most recent call last):
+  File "D:\WrokingProjects\PythonProject\src\bot\handlers\handlers.py", line 63, in handle_text_query
+    await processing_msg.edit_text(response)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'edit_text'
+2025-12-16 00:11:37 - aiogram.event - INFO - Update id=738227699 is not handled. Duration 448 ms by bot id=7844736553
+2025-12-16 00:11:37 - aiogram.event - ERROR - Cause exception while process update id=738227699 by bot id=7844736553
+AttributeError: 'str' object has no attribute 'edit_text'
+Traceback (most recent call last):
+  File "D:\WrokingProjects\PythonProject\src\bot\handlers\handlers.py", line 63, in handle_text_query
+    await processing_msg.edit_text(response)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'edit_text'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\src\bot\handlers\handlers.py", line 67, in handle_text_query
+    await processing_msg.edit_text(
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'edit_text'
+2025-12-16 00:12:59 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 00:12:59 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 00:12:59 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 00:12:59 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:13:04 - __main__ - INFO - Запуск приложения...
+2025-12-16 00:13:04 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:13:04 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:13:04 - __main__ - INFO - База данных инициализирована
+2025-12-16 00:13:04 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 00:13:04 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 00:13:04 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:13:09 - aiogram.event - INFO - Update id=738227700 is handled. Duration 193 ms by bot id=7844736553
+2025-12-16 00:13:12 - src.bot.handlers.handlers - INFO - Получен запрос Сколько всего видео?
+2025-12-16 00:13:12 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько всего видео?
+2025-12-16 00:13:12 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COUNT(*) FROM videos;'
+2025-12-16 00:13:12 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COUNT(*) FROM videos'
+2025-12-16 00:13:12 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos
+2025-12-16 00:13:12 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos
+2025-12-16 00:13:12 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:13:12 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos
+2025-12-16 00:13:12 - sqlalchemy.engine.Engine - INFO - [generated in 0.00019s] ()
+2025-12-16 00:13:12 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:13:13 - aiogram.event - INFO - Update id=738227701 is handled. Duration 565 ms by bot id=7844736553
+2025-12-16 00:13:25 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:13:25 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:13:26 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) \nFROM videos \nJOIN snapshots ON videos.video_id = snapshots.video_id \nWHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' \n  AND snapshots.views_count > 10000;"
+2025-12-16 00:13:26 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000"
+2025-12-16 00:13:26 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:26 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:26 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:13:26 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:26 - sqlalchemy.engine.Engine - INFO - [generated in 0.00023s] ()
+2025-12-16 00:13:26 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:13:26 - aiogram.event - INFO - Update id=738227702 is handled. Duration 1336 ms by bot id=7844736553
+2025-12-16 00:13:50 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?.
+2025-12-16 00:13:50 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?.
+2025-12-16 00:13:51 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) \nFROM videos \nJOIN snapshots ON videos.video_id = snapshots.video_id \nWHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' \n  AND snapshots.views_count > 10000;"
+2025-12-16 00:13:51 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000"
+2025-12-16 00:13:51 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:51 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:51 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:13:51 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:13:51 - sqlalchemy.engine.Engine - INFO - [cached since 25.12s ago] ()
+2025-12-16 00:13:51 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:13:51 - aiogram.event - INFO - Update id=738227703 is handled. Duration 1271 ms by bot id=7844736553
+2025-12-16 00:13:57 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 00:13:57 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 00:13:57 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 00:13:57 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:14:42 - __main__ - INFO - Запуск приложения...
+2025-12-16 00:14:42 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:14:42 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:14:42 - __main__ - INFO - База данных инициализирована
+2025-12-16 00:14:42 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 00:14:42 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 00:14:43 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:14:48 - aiogram.event - INFO - Update id=738227704 is handled. Duration 183 ms by bot id=7844736553
+2025-12-16 00:14:56 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:14:56 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:14:58 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) \nFROM videos \nJOIN snapshots ON videos.video_id = snapshots.video_id \nWHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' \n  AND snapshots.views_count > 10000;"
+2025-12-16 00:14:58 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000"
+2025-12-16 00:14:58 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:14:58 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:14:58 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:14:58 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:14:58 - sqlalchemy.engine.Engine - INFO - [generated in 0.00024s] ()
+2025-12-16 00:14:58 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:14:58 - aiogram.event - INFO - Update id=738227705 is handled. Duration 1292 ms by bot id=7844736553
+2025-12-16 00:15:08 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:15:08 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:15:09 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) \nFROM videos \nJOIN snapshots ON videos.video_id = snapshots.video_id \nWHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' \n  AND snapshots.views_count > 10000;"
+2025-12-16 00:15:09 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000"
+2025-12-16 00:15:09 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:15:09 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:15:09 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:15:09 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos JOIN snapshots ON videos.video_id = snapshots.video_id WHERE videos.creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND snapshots.views_count > 10000
+2025-12-16 00:15:09 - sqlalchemy.engine.Engine - INFO - [cached since 11.65s ago] ()
+2025-12-16 00:15:09 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:15:09 - aiogram.event - INFO - Update id=738227706 is handled. Duration 1380 ms by bot id=7844736553
+2025-12-16 00:20:34 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 00:20:34 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 00:20:34 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 00:20:34 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:20:39 - __main__ - INFO - Запуск приложения...
+2025-12-16 00:20:39 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:20:39 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:20:39 - __main__ - INFO - База данных инициализирована
+2025-12-16 00:20:40 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 00:20:40 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 00:20:40 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 00:20:49 - aiogram.event - INFO - Update id=738227707 is handled. Duration 191 ms by bot id=7844736553
+2025-12-16 00:20:58 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:20:58 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 00:20:59 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 00:20:59 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 00:20:59 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 00:20:59 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 00:20:59 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 00:20:59 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 00:20:59 - sqlalchemy.engine.Engine - INFO - [generated in 0.00026s] ()
+2025-12-16 00:20:59 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 00:20:59 - aiogram.event - INFO - Update id=738227708 is handled. Duration 973 ms by bot id=7844736553
+2025-12-16 00:21:03 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 00:21:03 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 00:21:03 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 00:21:03 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'

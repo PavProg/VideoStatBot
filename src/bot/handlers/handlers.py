@@ -37,13 +37,13 @@ async def handle_text_query(message: Message):
     if user_query.startswith('/'):
         return
 
-    processing_msg = await message.answer('Обрабатываю запрос через YandexGPT')
+    # processing_msg = ''
 
     try:
         sql_query = await yc_service.text_to_sql(user_query)
 
         if not sql_query:
-            await processing_msg.edit_text('Не удалось понять запрос. Попробуй сформулировать иначе')
+            # await processing_msg.edit_text('Не удалось понять запрос. Попробуй сформулировать иначе')
             return
 
         logger.info(f'Сгенерирован SQL: {sql_query}')
@@ -53,19 +53,19 @@ async def handle_text_query(message: Message):
             row = res.fetchone()
 
             if not row or row[0] is None:
-                await processing_msg.edit_text('Запросе не вернул результатов')
+                # await processing_msg.edit_text('Запросе не вернул результатов')
                 return
 
             number = row[0]
             formatted_number = f"{number:,}".replace(",", " ")
 
-            response = f"<b>Запрос:</b> <i>{user_query[:100]}...</i>\n\n <b>Результат:</b> <code>{formatted_number}</code>"
-            await processing_msg.edit_text(response)
+            response = formatted_number     # f"<b>Запрос:</b> <i>{user_query[:100]}...</i>\n\n <b>Результат:</b> <code>{formatted_number}</code>" - красивый ответ
+            await message.answer(response)
 
     except Exception as e:
         logger.error(f'Ошибка обработки запросов: {e}', exc_info=True)
-        await processing_msg.edit_text(
-            'Произошла ошибка при обработке запроса.\n'
-            'Попробуйте сформулировать запрос проще или проверьте корректность ID'
-        )
+        # await processing_msg.edit_text(
+        #     'Произошла ошибка при обработке запроса.\n'
+        #     'Попробуйте сформулировать запрос проще или проверьте корректность ID'
+        # )
 
