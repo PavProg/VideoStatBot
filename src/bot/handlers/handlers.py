@@ -59,9 +59,9 @@ async def handle_text_query(message: Message):
                 return
 
             number = row[0]
-            formatted_number = f"{number:,}".replace(",", " ")
+            formatted_number = int(number)
 
-            response = formatted_number     # f"<b>Запрос:</b> <i>{user_query[:100]}...</i>\n\n <b>Результат:</b> <code>{formatted_number}</code>" - красивый ответ
+            response = f'{formatted_number}'     # f"<b>Запрос:</b> <i>{user_query[:100]}...</i>\n\n <b>Результат:</b> <code>{formatted_number}</code>" - красивый ответ
             await message.answer(response)
 
     except Exception as e:

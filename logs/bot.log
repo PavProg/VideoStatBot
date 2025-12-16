@@ -523,3 +523,312 @@ sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class
 2025-12-16 00:38:39 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-12-16 00:38:39 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
 2025-12-16 00:38:39 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 11:56:18 - __main__ - INFO - Запуск приложения...
+2025-12-16 11:56:18 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:56:18 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:56:18 - __main__ - INFO - База данных инициализирована
+2025-12-16 11:56:18 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 11:56:18 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 11:56:18 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 11:56:32 - aiogram.event - INFO - Update id=738227715 is handled. Duration 190 ms by bot id=7844736553
+2025-12-16 11:56:44 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 11:56:44 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 11:56:45 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 11:56:45 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 11:56:45 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 11:56:45 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 11:56:45 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:56:45 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 11:56:45 - sqlalchemy.engine.Engine - INFO - [generated in 0.00018s] ()
+2025-12-16 11:56:45 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:56:45 - aiogram.event - INFO - Update id=738227716 is handled. Duration 1214 ms by bot id=7844736553
+2025-12-16 11:56:46 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 11:56:46 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 11:56:47 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 11:56:47 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 11:56:47 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 11:56:47 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 11:56:47 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:56:47 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 11:56:47 - sqlalchemy.engine.Engine - INFO - [generated in 0.00020s] ()
+2025-12-16 11:56:47 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:56:47 - aiogram.event - INFO - Update id=738227717 is handled. Duration 1387 ms by bot id=7844736553
+2025-12-16 11:56:48 - src.bot.handlers.handlers - INFO - Получен запрос Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 11:56:48 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 11:56:48 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 11:56:48 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 11:56:48 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 11:56:48 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 11:56:48 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:56:48 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 11:56:48 - sqlalchemy.engine.Engine - INFO - [generated in 0.00021s] ()
+2025-12-16 11:56:48 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:56:48 - aiogram.event - INFO - Update id=738227718 is handled. Duration 545 ms by bot id=7844736553
+2025-12-16 11:56:49 - src.bot.handlers.handlers - INFO - Получен запрос Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 11:56:49 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 11:56:50 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 11:56:50 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 11:56:50 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:56:50 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:56:50 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:56:50 - sqlalchemy.engine.Engine - INFO - SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:56:50 - sqlalchemy.engine.Engine - INFO - [generated in 0.00025s] ()
+2025-12-16 11:56:50 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:56:50 - aiogram.event - INFO - Update id=738227719 is handled. Duration 945 ms by bot id=7844736553
+2025-12-16 11:59:16 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 11:59:16 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 11:59:16 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 11:59:17 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 11:59:24 - __main__ - INFO - Запуск приложения...
+2025-12-16 11:59:24 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:59:24 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 11:59:24 - __main__ - INFO - База данных инициализирована
+2025-12-16 11:59:24 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 11:59:24 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 11:59:25 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 11:59:37 - aiogram.event - INFO - Update id=738227720 is handled. Duration 208 ms by bot id=7844736553
+2025-12-16 11:59:40 - src.bot.handlers.handlers - INFO - Получен запрос Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?.
+2025-12-16 11:59:40 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?.
+2025-12-16 11:59:41 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 11:59:41 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 11:59:41 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:59:41 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:59:41 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 11:59:41 - sqlalchemy.engine.Engine - INFO - SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 11:59:41 - sqlalchemy.engine.Engine - INFO - [generated in 0.00019s] ()
+2025-12-16 11:59:41 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-12-16 11:59:41 - src.bot.handlers.handlers - ERROR - Ошибка обработки запросов: 1 validation error for SendMessage
+text
+  Input should be a valid string [type=string_type, input_value=17668, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+Traceback (most recent call last):
+  File "D:\WrokingProjects\PythonProject\src\bot\handlers\handlers.py", line 65, in handle_text_query
+    await message.answer(response)
+          ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\aiogram\types\message.py", line 2244, in answer
+    return SendMessage(
+           ~~~~~~~~~~~^
+        chat_id=self.chat.id,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<17 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).as_(self._bot)
+    ^
+  File "D:\WrokingProjects\PythonProject\.venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for SendMessage
+text
+  Input should be a valid string [type=string_type, input_value=17668, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2025-12-16 11:59:41 - aiogram.event - INFO - Update id=738227721 is handled. Duration 1053 ms by bot id=7844736553
+2025-12-16 12:00:20 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 12:00:20 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 12:00:20 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 12:00:20 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 12:00:26 - __main__ - INFO - Запуск приложения...
+2025-12-16 12:00:26 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:26 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:26 - __main__ - INFO - База данных инициализирована
+2025-12-16 12:00:26 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 12:00:26 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 12:00:26 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 12:00:30 - aiogram.event - INFO - Update id=738227722 is handled. Duration 189 ms by bot id=7844736553
+2025-12-16 12:00:35 - src.bot.handlers.handlers - INFO - Получен запрос Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?.
+2025-12-16 12:00:35 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?.
+2025-12-16 12:00:36 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 12:00:36 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 12:00:36 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:36 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:36 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:36 - sqlalchemy.engine.Engine - INFO - SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:36 - sqlalchemy.engine.Engine - INFO - [generated in 0.00016s] ()
+2025-12-16 12:00:36 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:36 - aiogram.event - INFO - Update id=738227723 is handled. Duration 1190 ms by bot id=7844736553
+2025-12-16 12:00:45 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 12:00:45 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 12:00:46 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 12:00:46 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 12:00:46 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 12:00:46 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 12:00:46 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:46 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 12:00:46 - sqlalchemy.engine.Engine - INFO - [generated in 0.00019s] ()
+2025-12-16 12:00:46 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:46 - aiogram.event - INFO - Update id=738227724 is handled. Duration 1108 ms by bot id=7844736553
+2025-12-16 12:00:47 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 12:00:47 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 12:00:49 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND video_created_at BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 12:00:49 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND video_created_at BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 12:00:49 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND video_created_at BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 12:00:49 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND video_created_at BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 12:00:49 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:49 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND video_created_at BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 12:00:49 - sqlalchemy.engine.Engine - INFO - [generated in 0.00018s] ()
+2025-12-16 12:00:49 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:49 - aiogram.event - INFO - Update id=738227725 is handled. Duration 1719 ms by bot id=7844736553
+2025-12-16 12:00:49 - src.bot.handlers.handlers - INFO - Получен запрос Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 12:00:49 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 12:00:50 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 12:00:50 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 12:00:50 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 12:00:50 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 12:00:50 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:50 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 12:00:50 - sqlalchemy.engine.Engine - INFO - [generated in 0.00021s] ()
+2025-12-16 12:00:50 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:50 - aiogram.event - INFO - Update id=738227726 is handled. Duration 571 ms by bot id=7844736553
+2025-12-16 12:00:51 - src.bot.handlers.handlers - INFO - Получен запрос Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 12:00:51 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 12:00:51 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 12:00:51 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 12:00:51 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:51 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:51 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:51 - sqlalchemy.engine.Engine - INFO - SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 12:00:51 - sqlalchemy.engine.Engine - INFO - [cached since 15.79s ago] ()
+2025-12-16 12:00:51 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:51 - aiogram.event - INFO - Update id=738227727 is handled. Duration 976 ms by bot id=7844736553
+2025-12-16 12:00:52 - src.bot.handlers.handlers - INFO - Получен запрос На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал
+2025-12-16 12:00:52 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал
+2025-12-16 12:00:54 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT SUM(delta_views_count) FROM snapshots \nWHERE snapshot_id IN (\n    SELECT snapshot_id FROM snapshots \n    WHERE DATE(created_at) = '2025-11-28' \n    AND EXTRACT(HOUR FROM created_at) BETWEEN 10 AND 15\n    AND video_id IN (\n        SELECT video_id FROM videos \n        WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d'\n    )\n)"
+2025-12-16 12:00:54 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT SUM(delta_views_count) FROM snapshots WHERE snapshot_id IN ( SELECT snapshot_id FROM snapshots WHERE DATE(created_at) = '2025-11-28' AND EXTRACT(HOUR FROM created_at) BETWEEN 10 AND 15 AND video_id IN ( SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d' ) )"
+2025-12-16 12:00:54 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(delta_views_count) FROM snapshots WHERE snapshot_id IN ( SELECT snapshot_id FROM snapshots WHERE DATE(created_at) = '2025-11-28' AND EXTRACT(HOUR FROM created_at) BETWEEN 10 AND 15 AND video_id IN ( SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d' ) )
+2025-12-16 12:00:54 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(delta_views_count) FROM snapshots WHERE snapshot_id IN ( SELECT snapshot_id FROM snapshots WHERE DATE(created_at) = '2025-11-28' AND EXTRACT(HOUR FROM created_at) BETWEEN 10 AND 15 AND video_id IN ( SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d' ) )
+2025-12-16 12:00:54 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 12:00:54 - sqlalchemy.engine.Engine - INFO - SELECT SUM(delta_views_count) FROM snapshots WHERE snapshot_id IN ( SELECT snapshot_id FROM snapshots WHERE DATE(created_at) = '2025-11-28' AND EXTRACT(HOUR FROM created_at) BETWEEN 10 AND 15 AND video_id IN ( SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d' ) )
+2025-12-16 12:00:54 - sqlalchemy.engine.Engine - INFO - [generated in 0.00029s] ()
+2025-12-16 12:00:54 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 12:00:54 - aiogram.event - INFO - Update id=738227728 is handled. Duration 2178 ms by bot id=7844736553
+2025-12-16 12:03:36 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 12:03:36 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 12:03:36 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 12:03:36 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 13:15:14 - __main__ - INFO - Запуск приложения...
+2025-12-16 13:15:14 - __main__ - INFO - Все обязательные настройки проверены успешно
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:14 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:14 - __main__ - INFO - База данных инициализирована
+2025-12-16 13:15:14 - __main__ - INFO - Бот запущен и готов к работе!
+2025-12-16 13:15:14 - aiogram.dispatcher - INFO - Start polling
+2025-12-16 13:15:14 - aiogram.dispatcher - INFO - Run polling for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'
+2025-12-16 13:15:28 - aiogram.event - INFO - Update id=738227729 is handled. Duration 385 ms by bot id=7844736553
+2025-12-16 13:15:38 - src.bot.handlers.handlers - INFO - Получен запрос На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал.
+2025-12-16 13:15:38 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал.
+2025-12-16 13:15:40 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0"
+2025-12-16 13:15:40 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0"
+2025-12-16 13:15:40 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:40 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:40 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:40 - sqlalchemy.engine.Engine - INFO - SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:40 - sqlalchemy.engine.Engine - INFO - [generated in 0.00019s] ()
+2025-12-16 13:15:40 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:40 - aiogram.event - INFO - Update id=738227730 is handled. Duration 2031 ms by bot id=7844736553
+2025-12-16 13:15:48 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 13:15:48 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео у креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 набрали больше 10 000 просмотров по итоговой статистике?
+2025-12-16 13:15:49 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 13:15:49 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000"
+2025-12-16 13:15:49 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 13:15:49 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 13:15:49 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:49 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND views_count > 10000
+2025-12-16 13:15:49 - sqlalchemy.engine.Engine - INFO - [generated in 0.00020s] ()
+2025-12-16 13:15:49 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:49 - aiogram.event - INFO - Update id=738227731 is handled. Duration 942 ms by bot id=7844736553
+2025-12-16 13:15:50 - src.bot.handlers.handlers - INFO - Получен запрос Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 13:15:50 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько видео опубликовал креатор с id 8b76e572635b400c9052286a56176e03 в период с 1 ноября 2025 по 5 ноября 2025 включительно? Под периодом иметь в виду дату публикации видео.
+2025-12-16 13:15:51 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 13:15:51 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'"
+2025-12-16 13:15:51 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 13:15:51 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 13:15:51 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:51 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM videos WHERE creator_id = '8b76e572635b400c9052286a56176e03' AND DATE(video_created_at) BETWEEN '2025-11-01' AND '2025-11-05'
+2025-12-16 13:15:51 - sqlalchemy.engine.Engine - INFO - [generated in 0.00026s] ()
+2025-12-16 13:15:52 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:52 - aiogram.event - INFO - Update id=738227732 is handled. Duration 1547 ms by bot id=7844736553
+2025-12-16 13:15:52 - src.bot.handlers.handlers - INFO - Получен запрос Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 13:15:52 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько всего есть замеров статистики (по всем видео), в которых число просмотров за час оказалось отрицательным — то есть по сравнению с предыдущим замером количество просмотров стало меньше?
+2025-12-16 13:15:53 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COALESCE(COUNT(*), 0) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 13:15:53 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COALESCE(COUNT(*), 0) FROM snapshots WHERE delta_views_count < 0'
+2025-12-16 13:15:53 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COALESCE(COUNT(*), 0) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 13:15:53 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COALESCE(COUNT(*), 0) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 13:15:53 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:53 - sqlalchemy.engine.Engine - INFO - SELECT COALESCE(COUNT(*), 0) FROM snapshots WHERE delta_views_count < 0
+2025-12-16 13:15:53 - sqlalchemy.engine.Engine - INFO - [generated in 0.00017s] ()
+2025-12-16 13:15:53 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:53 - aiogram.event - INFO - Update id=738227733 is handled. Duration 754 ms by bot id=7844736553
+2025-12-16 13:15:54 - src.bot.handlers.handlers - INFO - Получен запрос Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 13:15:54 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?
+2025-12-16 13:15:54 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 13:15:54 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6'
+2025-12-16 13:15:54 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 13:15:54 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 13:15:54 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:54 - sqlalchemy.engine.Engine - INFO - SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+2025-12-16 13:15:54 - sqlalchemy.engine.Engine - INFO - [generated in 0.00021s] ()
+2025-12-16 13:15:55 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:55 - aiogram.event - INFO - Update id=738227734 is handled. Duration 1124 ms by bot id=7844736553
+2025-12-16 13:15:55 - src.bot.handlers.handlers - INFO - Получен запрос На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал
+2025-12-16 13:15:55 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: На сколько просмотров суммарно выросли все видео креатора с id cd87be38b50b4fdd8342bb3c383f3c7d в промежутке с 10:00 до 15:00 (по тому времени, которое хранится в замерах) 28 ноября 2025 года? Нужно сложить изменения просмотров между замерами, попадающими в этот интервал
+2025-12-16 13:15:57 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0"
+2025-12-16 13:15:57 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0"
+2025-12-16 13:15:57 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:57 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:57 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:57 - sqlalchemy.engine.Engine - INFO - SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'cd87be38b50b4fdd8342bb3c383f3c7d') AND delta_views_count > 0
+2025-12-16 13:15:57 - sqlalchemy.engine.Engine - INFO - [cached since 16.66s ago] ()
+2025-12-16 13:15:57 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:57 - aiogram.event - INFO - Update id=738227735 is handled. Duration 1907 ms by bot id=7844736553
+2025-12-16 13:15:58 - src.bot.handlers.handlers - INFO - Получен запрос Сколько разных креаторов имеют хотя бы одно видео, которое в итоге набрало больше 100 000 просмотров?
+2025-12-16 13:15:58 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Сколько разных креаторов имеют хотя бы одно видео, которое в итоге набрало больше 100 000 просмотров?
+2025-12-16 13:15:58 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): 'SELECT COUNT(DISTINCT creator_id) FROM videos WHERE views_count > 100000'
+2025-12-16 13:15:58 - src.llm_service.llm_service - INFO - Очищенный SQL: 'SELECT COUNT(DISTINCT creator_id) FROM videos WHERE views_count > 100000'
+2025-12-16 13:15:58 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(DISTINCT creator_id) FROM videos WHERE views_count > 100000
+2025-12-16 13:15:58 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(DISTINCT creator_id) FROM videos WHERE views_count > 100000
+2025-12-16 13:15:58 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:15:58 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(DISTINCT creator_id) FROM videos WHERE views_count > 100000
+2025-12-16 13:15:58 - sqlalchemy.engine.Engine - INFO - [generated in 0.00016s] ()
+2025-12-16 13:15:59 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:15:59 - aiogram.event - INFO - Update id=738227736 is handled. Duration 825 ms by bot id=7844736553
+2025-12-16 13:15:59 - src.bot.handlers.handlers - INFO - Получен запрос Для креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 посчитай, в скольких разных календарных днях ноября 2025 года он публиковал хотя бы одно видео.
+2025-12-16 13:15:59 - src.llm_service.llm_service - INFO - Отправка запроса в YandexGPT: Для креатора с id aca1061a9d324ecf8c3fa2bb32d7be63 посчитай, в скольких разных календарных днях ноября 2025 года он публиковал хотя бы одно видео.
+2025-12-16 13:16:01 - src.llm_service.llm_service - INFO - Сырой ответ от YandexGPT (repr): "SELECT COUNT(DISTINCT DATE(video_created_at)) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 11"
+2025-12-16 13:16:01 - src.llm_service.llm_service - INFO - Очищенный SQL: "SELECT COUNT(DISTINCT DATE(video_created_at)) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 11"
+2025-12-16 13:16:01 - src.llm_service.llm_service - INFO - Сгенерирован валидный SQL: SELECT COUNT(DISTINCT DATE(video_created_at)) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 11
+2025-12-16 13:16:01 - src.bot.handlers.handlers - INFO - Сгенерирован SQL: SELECT COUNT(DISTINCT DATE(video_created_at)) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 11
+2025-12-16 13:16:01 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-12-16 13:16:01 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(DISTINCT DATE(video_created_at)) FROM videos WHERE creator_id = 'aca1061a9d324ecf8c3fa2bb32d7be63' AND EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 11
+2025-12-16 13:16:01 - sqlalchemy.engine.Engine - INFO - [generated in 0.00016s] ()
+2025-12-16 13:16:01 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-12-16 13:16:01 - aiogram.event - INFO - Update id=738227737 is handled. Duration 1598 ms by bot id=7844736553
+2025-12-16 13:16:14 - aiogram.dispatcher - INFO - Polling stopped
+2025-12-16 13:16:14 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-16 13:16:14 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7844736553)
+2025-12-16 13:16:14 - aiogram.dispatcher - INFO - Polling stopped for bot @VideoStAt_bot id=7844736553 - 'VideoStatBot'

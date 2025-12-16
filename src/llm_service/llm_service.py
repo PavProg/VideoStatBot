@@ -146,24 +146,47 @@ class YandexMLGPTQueryService:
         14. Для фильтрации по МЕСЯЦУ используй EXTRACT(): WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
         15. Для фильтрации по ГОДУ используй EXTRACT(): WHERE EXTRACT(YEAR FROM video_created_at) = 2025
         16. Для фильтрации по ПЕРИОДУ (с/по) используй BETWEEN: WHERE created_at BETWEEN '2025-06-01' AND '2025-06-30'
+        17. Для фильтрации по ЧАСУ используй EXTRACT(HOUR FROM created_at): WHERE EXTRACT(HOUR FROM created_at) >= 10
         
         ОСОБЫЕ ПРАВИЛА ДЛЯ СТАТИСТИКИ:
-        17. Для вопросов о "новых просмотрах" используй delta_views_count > 0
-        18. Для вопросов о "суммарных просмотрах ВСЕХ видео" используй SUM(views_count) из таблицы videos
-        19. Для вопросов о "суммарных просмотрах по снапшотам" используй SUM(views_count) из таблицы snapshots с DISTINCT или группировкой
+        18. Для вопросов о "новых просмотрах" используй delta_views_count > 0
+        19. Для вопросов о "суммарных просмотрах ВСЕХ видео" используй SUM(views_count) из таблицы videos
+        20. Для вопросов о "суммарных просмотрах по снапшотам" используй SUM(views_count) из таблицы snapshots с DISTINCT или группировкой
+        21. Для вопросов о "выросли/увеличились" используй фильтр delta_views_count > 0
+        22. Для вопросов о "потеряли/уменьшились" используй фильтр delta_views_count < 0
+        23. Для "абсолютного изменения" используй ABS(delta_views_count)
+        
+        ОСОБЫЕ ПРАВИЛА ДЛЯ ВРЕМЕННЫХ ИНТЕРВАЛОВ:
+        24. Для интервалов "с X:00 до Y:00" используй полуоткрытый интервал: >= X AND < Y
+        25. Пример: "с 10:00 до 15:00" → WHERE EXTRACT(HOUR FROM created_at) >= 10 AND EXTRACT(HOUR FROM created_at) < 15
+        26. Для точных временных границ используй: WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00'
         
         ИНТЕРПРЕТАЦИЯ ВОПРОСОВ:
-        20. "по итоговой статистике", "текущие показатели", "всего" → используй таблицу videos
-        21. "когда-либо имели", "в истории были", "по снапшотам" → используй таблицу snapshots с DISTINCT
-        22. "максимальные просмотры" → используй MAX(views_count) в подзапросе или GROUP BY
-        23. "опубликованные в [месяц] [год]" → используй EXTRACT(YEAR FROM video_created_at) = год AND EXTRACT(MONTH FROM video_created_at) = месяц
+        27. "по итоговой статистике", "текущие показатели", "всего" → используй таблицу videos
+        28. "когда-либо имели", "в истории были", "по снапшотам" → используй таблицу snapshots с DISTINCT
+        29. "максимальные просмотры" → используй MAX(views_count) в подзапросе или GROUP BY
+        30. "опубликованные в [месяц] [год]" → используй EXTRACT(YEAR FROM video_created_at) = год AND EXTRACT(MONTH FROM video_created_at) = месяц
+        31. "выросли в промежутке" → суммируй delta_views_count только с фильтром > 0
+        32. "изменились в промежутке" → суммируй delta_views_count без фильтра
         
         ПРИМЕРЫ SQL-ЗАПРОСОВ:
-        24. "Сколько видео имеют > 10000 просмотров?" → SELECT COUNT(*) FROM videos WHERE views_count > 10000
-        25. "Сколько видео набрали > 10000 просмотров в истории?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE views_count > 10000
-        26. "Сколько видео опубликовано в июне 2025?" → SELECT COUNT(*) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
-        27. "Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?" → SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
-        28. "Сколько разных видео получали новые просмотры 27 ноября 2025?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE DATE(created_at) = '2025-11-27' AND delta_views_count > 0
+        33. "Сколько видео имеют > 10000 просмотров?" → SELECT COUNT(*) FROM videos WHERE views_count > 10000
+        34. "Сколько видео набрали > 10000 просмотров в истории?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE views_count > 10000
+        35. "Сколько видео опубликовано в июне 2025?" → SELECT COUNT(*) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+        36. "Какое суммарное количество просмотров набрали все видео, опубликованные в июне 2025 года?" → SELECT SUM(views_count) FROM videos WHERE EXTRACT(YEAR FROM video_created_at) = 2025 AND EXTRACT(MONTH FROM video_created_at) = 6
+        37. "Сколько разных видео получали новые просмотры 27 ноября 2025?" → SELECT COUNT(DISTINCT video_id) FROM snapshots WHERE DATE(created_at) = '2025-11-27' AND delta_views_count > 0
+        38. "На сколько просмотров суммарно выросли все видео креатора X в промежутке с 10:00 до 15:00 28 ноября 2025?" → SELECT COALESCE(SUM(delta_views_count), 0) FROM snapshots WHERE created_at >= '2025-11-28 10:00:00' AND created_at < '2025-11-28 15:00:00' AND video_id IN (SELECT video_id FROM videos WHERE creator_id = 'X') AND delta_views_count > 0
+        39. "Сколько видео у креатора X набрали больше 10000 просмотров по итоговой статистике?" → SELECT COUNT(*) FROM videos WHERE creator_id = 'X' AND views_count > 10000
+        40. "Какое суммарное количество просмотров у автора X?" → SELECT SUM(views_count) FROM videos WHERE creator_id = 'X'
+        41. "Среднее количество просмотров на видео у автора X?" → SELECT AVG(views_count) FROM videos WHERE creator_id = 'X'
+        
+        ДОПОЛНИТЕЛЬНЫЕ ПРАВИЛА:
+        42. Если вопрос содержит "итоговый", "текущий", "общий" → обращайся к таблице videos
+        43. Если вопрос содержит "в истории", "по замерам", "в снапшотах" → обращайся к таблице snapshots
+        44. Если вопрос содержит "выросло", "увеличилось", "прибавилось" → добавляй delta_..._count > 0
+        45. Если вопрос содержит "упало", "снизилось", "потеряло" → добавляй delta_..._count < 0
+        46. Всегда используй COALESCE(..., 0) для функций агрегации чтобы избежать NULL
+        47. Для JOIN используй явное указание таблиц: videos.video_id, snapshots.video_id
         """
         }
         user_message = {
